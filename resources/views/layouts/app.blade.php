@@ -66,7 +66,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-				<li><a href="{{ url('/basket') }}"><i class="fa fa-btn fa-sign-out"></i>Basket</a></li>
+										  <li><a href="{{ url('/cart') }}"><i class="fa fa-btn fa-sign-out"></i>Cart</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
@@ -75,6 +75,13 @@
             </div>
         </div>
     </nav>
+    
+    @if (Session::has('message'))
+		<div class="flash alert-info">
+			<p>{{ Session::get('message') }}</p>
+		</div>
+	@endif
+ 
 
     @yield('content')
 

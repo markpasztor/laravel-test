@@ -21,10 +21,9 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('products', 'ProductsController');
 Route::bind('products', function($value, $route) {
-	return App\Products::whereSlug($value)->first();
+	return App\Products::whereId($value)->first();
 });
+Route::post('products/addcart', 'ProductsController@addCart');
 
-Route::resource('basket', 'BasketController');
-Route::bind('basket', function($value, $route) {
-	return App\Basket::whereSlug($value)->first();
-});
+Route::resource('cart', 'CartController');
+Route::post('cart/emptycart', 'CartController@emptyCart');
