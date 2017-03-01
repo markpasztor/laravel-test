@@ -48,6 +48,9 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Home</a></li>
+		    @if (!Auth::guest())
+			<li><a href="{{ url('/products') }}">Products</a></li>
+		    @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -63,6 +66,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+				<li><a href="{{ url('/basket') }}"><i class="fa fa-btn fa-sign-out"></i>Basket</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
